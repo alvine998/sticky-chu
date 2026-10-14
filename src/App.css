@@ -1,0 +1,244 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #ececf1;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: transparent;
+  overflow: hidden;
+}
+
+.shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(24, 24, 28, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  cursor: grab;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: #b7b7c0;
+}
+
+.bar:active { cursor: grabbing; }
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7ee2a8;
+  flex-shrink: 0;
+}
+
+.title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions { display: flex; gap: 2px; }
+
+.actions button {
+  background: none;
+  border: none;
+  color: #b7b7c0;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.actions button.on { color: #7ee2a8; }
+
+.pet-mini {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.pet-avatar {
+  width: 88px;
+  height: 88px;
+  font-size: 48px;
+  border-radius: 50%;
+  border: 3px solid;
+  background: rgba(24, 24, 28, 0.92);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.pet-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pet-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  color: #ececf1;
+}
+
+.pet-opt:hover { background: rgba(255, 255, 255, 0.12); }
+
+.pet-emoji { font-size: 28px; }
+.pet-name { font-size: 11px; color: #b7b7c0; }
+
+.welcome { text-align: center; margin-top: 30px; color: #8a8a94; font-size: 13px; }
+.welcome-pet {
+  font-size: 56px;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.msg { max-width: 92%; display: flex; gap: 4px; align-items: flex-end; }
+.msg-pet { font-size: 18px; flex-shrink: 0; }
+
+.settings {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hint { color: #8a8a94; font-size: 13px; text-align: center; margin-top: 40px; }
+
+.msg { max-width: 92%; }
+.msg pre {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.msg.user { align-self: flex-end; }
+.msg.user pre { background: #3b5bfd; color: #fff; }
+
+.msg.assistant { align-self: flex-start; }
+.msg.assistant pre { background: rgba(255, 255, 255, 0.08); color: #ececf1; }
+
+.err {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #ff9d9d;
+  border-top: 1px solid rgba(255, 100, 100, 0.3);
+  word-break: break-word;
+}
+
+.composer {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.composer textarea {
+  flex: 1;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.composer textarea:focus { border-color: #3b5bfd; }
+
+.composer button, .settings button {
+  border: none;
+  border-radius: 8px;
+  background: #3b5bfd;
+  color: #fff;
+  padding: 0 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.settings input {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 6px 8px;
+  font-size: 13px;
+  outline: none;
+}
